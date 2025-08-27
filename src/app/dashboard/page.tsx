@@ -1,3 +1,4 @@
+//dashboard
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -6,6 +7,8 @@ import Link from "next/link";
 import DashboardHero from "../reports/page";
 import InventoryManager from "@/components/InventoryManager";
 import DashboardView from "@/components/DashboardView";
+import { usePathname } from "next/navigation";
+
 
 interface TabItem {
   id: string;
@@ -15,13 +18,14 @@ interface TabItem {
 
 export default function Dashboard() {
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const user = localStorage.getItem("loggedInUser");
-    if (!user) {
-      router.push("/login");
-    }
-  }, [router]);
+      if (!user && pathname !== "/login" && pathname !== "/register") {
+    router.push("/login");
+  }
+}, [router, pathname]);
 
   const [activeTab, setActiveTab] = useState<string>("dashboard");
 
