@@ -195,7 +195,7 @@ export default function InventoryManager() {
       </div>
 
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <input name="product" placeholder="Product Name" value={form.product} onChange={handleChange} className="border p-2 rounded" required />
+        <input name="product" placeholder="Product Name" value={form.product} onChange={handleChange} className="border p-2 rounded w-full" required />
         <input name="category" placeholder="Category" value={form.category} onChange={handleChange} className="border p-2 rounded" />
         <input name="supplier" placeholder="Supplier" value={form.supplier} onChange={handleChange} className="border p-2 rounded" />
         <input name="stock" type="number" placeholder="Stock" value={form.stock} onChange={handleChange} className="border p-2 rounded" required />
@@ -205,7 +205,7 @@ export default function InventoryManager() {
 
       <h2 className="text-xl font-bold mb-4">Product List</h2>
       <div className="overflow-x-auto">
-        <table className="w-full bg-white rounded-lg shadow">
+        <table className="w-full min-w-[600px] bg-white rounded-lg shadow">
           <thead>
             <tr className="bg-gray-100 text-left">
               <th className="p-3">#</th>
